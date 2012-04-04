@@ -179,7 +179,7 @@ public class Chart extends WebComponent implements Serializable {
             return null;
         }
 
-        StringBuilder back = new StringBuilder(barWidth);
+        StringBuilder back = new StringBuilder(String.valueOf(barWidth));
 
         if (groupSpacing >= 0) {
             back.append(',').append(groupSpacing);
