@@ -242,7 +242,10 @@ public class Chart extends WebComponent implements Serializable {
                 toRender = "";
             }
 
-            back.append(toRender).append(',');
+//            back.append(toRender).append(',');
+// TODO: Changed the previous line to the next, this needs further API investigating and googlecharts API refining to support either series or individual graph colors, see here: https://developers.google.com/chart/image/docs/gallery/bar_charts#series_colors
+// This specific modification was added to support bar graphs, as I mainly needed this type of graphs now
+              back.append(toRender).append('|');
         }
 
         if (back.length() > 0) {
