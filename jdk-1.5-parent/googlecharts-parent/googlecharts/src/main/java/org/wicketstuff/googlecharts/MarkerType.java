@@ -17,7 +17,8 @@ public enum MarkerType {
     VERTICAL_TO_TOP("V"),
     HORIZONTAL_ACROSS("h"),
     X("x"),
-    N("N");
+    N("N"),
+    N_P("N*p");
     
     private final String rendering;
 

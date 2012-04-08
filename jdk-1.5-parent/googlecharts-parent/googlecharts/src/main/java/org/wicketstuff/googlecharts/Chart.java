@@ -91,6 +91,8 @@ public class Chart extends WebComponent implements Serializable {
             addParameter(url, "chls", render(provider.getLineStyles()));
             addParameter(url, "chm", render(provider.getFillAreas()));
             addParameter(url, "chl", render(provider.getPieLabels()));
+            
+            addParameter(url, "chds", render(provider.getData().getScaleToDataRanges()));
 
             return url;
         } finally {
@@ -98,7 +100,30 @@ public class Chart extends WebComponent implements Serializable {
         }
     }
 
-    private void addParameter(StringBuilder url, CharSequence param, CharSequence value) {
+    private CharSequence render(Range[] ranges) {
+    	if (ranges == null)
+    		return null;
+
+        StringBuilder back = new StringBuilder();
+
+        for (Range range : ranges) {
+            
+            if (range == null) {
+                continue;
+            }
+            else{
+            	if (back.length() != 0)
+            		back.append(',');
+            	
+            	back.append(range.getStart());
+            	back.append(',');
+            	back.append(range.getEnd());
+            }
+        }
+        return back;
+	}
+
+	private void addParameter(StringBuilder url, CharSequence param, CharSequence value) {
         if (value == null || value.length() == 0) {
             return;
         }

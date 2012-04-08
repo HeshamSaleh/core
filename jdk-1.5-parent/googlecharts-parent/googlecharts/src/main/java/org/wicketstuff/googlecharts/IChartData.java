@@ -15,4 +15,6 @@ public interface IChartData extends Serializable {
     public double[][] getData();
 
     public double getMax();
+    
+    public Range[] getScaleToDataRanges(); 
 }

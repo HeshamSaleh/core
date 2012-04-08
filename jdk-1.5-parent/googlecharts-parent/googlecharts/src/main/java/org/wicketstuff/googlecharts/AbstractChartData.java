@@ -10,6 +10,7 @@ public abstract class AbstractChartData implements IChartData {
 
     private ChartDataEncoding encoding;
     private double max;
+    private Range[] scaleToDataRanges;
 
     public AbstractChartData() {
         this(62);
@@ -39,4 +40,12 @@ public abstract class AbstractChartData implements IChartData {
     public void setMax(double max) {
         this.max = max;
     }
+    
+    public Range[] getScaleToDataRanges(){
+    	return scaleToDataRanges;
+    }
+    public void setScaleToDataRanges(Range[] ranges){
+    	this.scaleToDataRanges = ranges;
+    }
+    
 }
