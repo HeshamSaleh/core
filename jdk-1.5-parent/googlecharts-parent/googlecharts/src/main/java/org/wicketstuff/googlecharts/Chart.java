@@ -254,6 +254,29 @@ public class Chart extends WebComponent implements Serializable {
         return back;
     }
 
+    private CharSequence render(Color[][] values) {
+        if (values == null) {
+            return null;
+        }
+
+        StringBuilder back = new StringBuilder();
+
+        for (Color[] colorSeries : values) {
+            CharSequence toRender = render(colorSeries);
+            if (toRender == null) {
+                toRender = "";
+            }
+            back.append(toRender).append(',');
+        }
+
+        if (back.length() > 0) {
+            back.setLength(back.length() - 1);
+        }
+
+        return back;
+    }
+
+    
     private CharSequence render(Color[] values) {
         if (values == null) {
             return null;
@@ -266,11 +289,7 @@ public class Chart extends WebComponent implements Serializable {
             if (toRender == null) {
                 toRender = "";
             }
-
-//            back.append(toRender).append(',');
-// TODO: Changed the previous line to the next, this needs further API investigating and googlecharts API refining to support either series or individual graph colors, see here: https://developers.google.com/chart/image/docs/gallery/bar_charts#series_colors
-// This specific modification was added to support bar graphs, as I mainly needed this type of graphs now
-              back.append(toRender).append('|');
+            back.append(toRender).append('|');
         }
 
         if (back.length() > 0) {

@@ -19,7 +19,7 @@ public class ChartProvider implements IChartProvider {
     private int barGroupSpacing = -1;
     private int barWidth = -1;
     private IChartFill chartFill;
-    private Color[] colors;
+    private Color[][] colors;
     private List<IFillArea> fillAreas = new ArrayList<IFillArea>();
     private IChartGrid grid;
     private String[] legend;
@@ -58,7 +58,7 @@ public class ChartProvider implements IChartProvider {
         return chartFill;
     }
 
-    public Color[] getColors() {
+    public Color[][] getColors() {
         return colors;
     }
 
@@ -126,7 +126,7 @@ public class ChartProvider implements IChartProvider {
         this.chartFill = chartFill;
     }
 
-    public void setColors(Color[] colors) {
+    public void setColors(Color[][] colors) {
         this.colors = colors;
     }
 

@@ -26,7 +26,7 @@ public interface IChartProvider extends Serializable {
 
     public String[] getLegend();
 
-    public Color[] getColors();
+    public Color[][] getColors();
 
     public IChartFill getChartFill();
 
